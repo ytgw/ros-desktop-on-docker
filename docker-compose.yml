@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        UID: ${UID:?err}
+        USERNAME: ${USERNAME:?err}
+    environment:
+      DISPLAY: ${DISPLAY:?err}
+    user: ${UID:?err}
+    volumes:
+      - /tmp/.X11-unix/X0:/tmp/.X11-unix/X0:rw
+      - ./catkin_ws:/catkin_ws:rw
